@@ -17,15 +17,15 @@ cats and X-files fan.
 
 And yes... I do have my very own homelab in Gentbrugge -thats in Belgium- with <nuxt-link to="/uses">lots, lots, and lots of gear</nuxt-link>. 😏
 
-Oh. Yeah. I do speak Dutch as well. In fact it’s my mother tongue.. technically..
+Oh. Yeah. I do speak Dutch as well. In fact it’s my mother tongue.. tefchnically..
 
 I ❤ my cat, my friends, my family, boardgames, doodling, writing, Lego, code, 3D printing, drawing, photography, improving my life, reading, being outdoors and finding hidden treasures.
 
-Sometimes <nuxt-link to="/articles">I write useful posts</nuxt-link>, <nuxt-link to="/journal">sometimes very silly</nuxt-link>, and <nuxt-link to="/nantucket">a bit dark ones</nuxt-link>.  **But most times I write, create, build, code, play and explore other realities.**  
+Sometimes [I write useful posts](/articles), [sometimes very silly](/journal), and [a bit dark ones](/nantucket).  **But most times I write, create, build, code, play and explore other realities.**  
 
 <small>.. I&#8217;m also a Scout for life &#8211; Creative Sifaka &#8211; present!</small>
 
 **INFP &#8211; W**ork.**I**n.**P**rogress ✌️
 
-<nuxt-link to="/this-is-me">more...</nuxt-link>
+[more...](/this-is-me)
 

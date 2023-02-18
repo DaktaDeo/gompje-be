@@ -33,10 +33,39 @@ class Controller extends BaseController
             ]);
         }
 
+        $wantedFile = $this->getWantedFileFromView($view);
+
+        ray($wantedFile);
+
+        $result = Markdown::convert($this->disk->get($wantedFile));
+        $frontMatter = [];
+
+        if ($result instanceof RenderedContentWithFrontMatter) {
+            $frontMatter = $result->getFrontMatter();
+        }
+        $content = $result->getContent();
+
+        ray($frontMatter, $content);
+
+        return view('post', [
+            'content' => $content,
+            'frontMatter' => $frontMatter,
+            'title' => data_get($frontMatter, 'title'),
+            'author' => data_get($frontMatter, 'author'),
+            'date' => data_get($frontMatter, 'date'),
+        ]);
+
+        abort(404);
+
+        dd('stop');
+
         $post = Post::where('slug', $view)->first();
         if ($post === null) {
             abort(404);
         }
+
+        ray($post, $view);
+        dd('tstop');
 
         $result = Markdown::convert('content/'.$view);
         $frontMatter = [];
@@ -50,5 +79,21 @@ class Controller extends BaseController
             'frontMatter' => $frontMatter,
             'post' => $post,
         ]);
+    }
+
+    private function getWantedFileFromView(string $view): string
+    {
+        $wantedFile = "$view.md";
+        if (! $this->disk->exists($wantedFile)) {
+            $wantedFile = "$view/index.md";
+
+            if (! $this->disk->exists($wantedFile)) {
+                abort(404);
+            }
+
+            return $wantedFile;
+        }
+
+        return $wantedFile;
     }
 }
