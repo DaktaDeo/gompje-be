@@ -1,0 +1,25 @@
+follow:
+  - name: twitter
+    title: Twitter
+    link: 'https://twitter.com/intent/follow?screen_name=iAmGompje'
+    weight: 10
+  - name: facebook
+    title: Facebook
+    link: 'https://www.facebook.com/Gompje'
+    weight: 20
+  - name: linkedin
+    title: LinkedIn
+    link: 'https://www.linkedin.com/in/veerledeschepper/'
+    weight: 30
+  - name: instagram
+    title: Instagram
+    link: 'https://www.instagram.com/gompje/'
+    weight: 40
+  - name: gitlab
+    title: Gitlab
+    link: 'https://gitlab.com/Gompje'
+    weight: 50
+  - name: github
+    title: Github
+    link: 'https://github.com/Gompje'
+    weight: 51
