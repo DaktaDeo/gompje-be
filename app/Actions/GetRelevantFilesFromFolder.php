@@ -8,7 +8,6 @@ use Illuminate\Support\Collection;
  * loop through a folder and get all files, including all files inside subdirectories
  * return a Collection with the file path from the root of the disk
  * if the extension is not md, skip this file
- * add $filename to the collection when it is not index
  */
 class GetRelevantFilesFromFolder extends FileAction
 {
@@ -27,13 +26,11 @@ class GetRelevantFilesFromFolder extends FileAction
             $filename = str_replace('.'.$extension, '', $path);
 
             //add $filename to the collection when it is not index
-            if ($filename !== 'index') {
-                $files->push([
-                    'pk' => ++$id,
-                    'view' => $filename,
-                    'path' => $path,
-                ]);
-            }
+            $files->push([
+                'pk' => ++$id,
+                'view' => $filename,
+                'path' => $path,
+            ]);
         }
 
         return $files;
