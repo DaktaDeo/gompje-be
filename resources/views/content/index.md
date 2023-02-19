@@ -15,7 +15,7 @@ Hi there, 👋 <br/>I’m Veerle Deschepper, a full-stack developer, entrepreneu
 photographer, reader, painter, and I love to create Art – every tiny bit of it. I’m also a lego, geocaching, 
 cats and X-files fan.
 
-And yes... I do have my very own homelab in Gentbrugge -thats in Belgium- with <nuxt-link to="/uses">lots, lots, and lots of gear</nuxt-link>. 😏
+And yes... I do have my very own homelab in Gentbrugge -thats in Belgium- with <nuxt-link to="/uses">[lots, lots, and lots of gear](/uses). 😏
 
 Oh. Yeah. I do speak Dutch as well. In fact it’s my mother tongue.. tefchnically..
 

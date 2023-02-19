@@ -9,6 +9,7 @@
         "calebporzio/sushi": "^2.4",
         "graham-campbell/markdown": "^14.0",
         "guzzlehttp/guzzle": "^7.2",
+        "jenssegers/model": "^1.5",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",

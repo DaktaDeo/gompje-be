@@ -9,6 +9,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use League\CommonMark\Extension\FrontMatter\Output\RenderedContentWithFrontMatter;
 
@@ -33,51 +34,8 @@ class Controller extends BaseController
             ]);
         }
 
-        $wantedFile = $this->getWantedFileFromView($view);
-
-        ray($wantedFile);
-
-        $result = Markdown::convert($this->disk->get($wantedFile));
-        $frontMatter = [];
-
-        if ($result instanceof RenderedContentWithFrontMatter) {
-            $frontMatter = $result->getFrontMatter();
-        }
-        $content = $result->getContent();
-
-        ray($frontMatter, $content);
-
         return view('post', [
-            'content' => $content,
-            'frontMatter' => $frontMatter,
-            'title' => data_get($frontMatter, 'title'),
-            'author' => data_get($frontMatter, 'author'),
-            'date' => data_get($frontMatter, 'date'),
-        ]);
-
-        abort(404);
-
-        dd('stop');
-
-        $post = Post::where('slug', $view)->first();
-        if ($post === null) {
-            abort(404);
-        }
-
-        ray($post, $view);
-        dd('tstop');
-
-        $result = Markdown::convert('content/'.$view);
-        $frontMatter = [];
-
-        if ($result instanceof RenderedContentWithFrontMatter) {
-            $frontMatter = $result->getFrontMatter();
-        }
-
-        return view('post', [
-            'content' => $result->getContent(),
-            'frontMatter' => $frontMatter,
-            'post' => $post,
+            'post' => $this->getContentFromCache($view),
         ]);
     }
 
@@ -95,5 +53,40 @@ class Controller extends BaseController
         }
 
         return $wantedFile;
+    }
+
+    public function getContentFromCache(string $view): Post
+    {
+        $wantedFile = $this->getWantedFileFromView($view);
+        $lastModified = $this->disk->lastModified($wantedFile);
+
+        $key = $view.$lastModified;
+
+        //check if cache exists with this $key
+        if (Cache::has($key)) {
+            return Cache::get($key);
+        }
+
+        //remove old caches in Redis that start with $view
+        $keys = Cache::getRedis()->keys($view.'*');
+        foreach ($keys as $key) {
+            Cache::forget($key);
+        }
+        $post = new Post([
+            'key' => $key,
+            'view' => $view,
+            'last_modified' => $lastModified,
+        ]);
+
+        $result = Markdown::convert($this->disk->get($wantedFile));
+
+        if ($result instanceof RenderedContentWithFrontMatter) {
+            $post->frontMatter = $result->getFrontMatter();
+        }
+        $post->content = $result->getContent();
+
+        Cache::forever($key, $post);
+
+        return $post;
     }
 }

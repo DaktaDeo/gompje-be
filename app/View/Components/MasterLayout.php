@@ -2,21 +2,22 @@
 
 namespace App\View\Components;
 
+use App\Models\Post;
 use Illuminate\View\Component;
 
 class MasterLayout extends Component
 {
-    public ?string $title;
+    public Post $post;
 
-    public function __construct(string|null $title = '')
+    public function __construct(Post|null $post = null)
     {
-        $this->title = $title;
+        $this->post = $post ?? new Post();
     }
 
     public function render()
     {
         return view('layouts.master', [
-            'title' => $this->title,
+            'post' => $this->post,
         ]);
     }
 }
