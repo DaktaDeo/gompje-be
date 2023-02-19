@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\GetCachedMarkdownPost;
+use App\Repositories\PostsRepository;
 use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
@@ -29,8 +29,14 @@ class Controller extends BaseController
             ]);
         }
 
+        if ($this->disk->exists($view.'/index.blade.php')) {
+            return view("content.$view.index", [
+                'view' => $view,
+            ]);
+        }
+
         return view('post', [
-            'post' => app(GetCachedMarkdownPost::class)($view),
+            'post' => app(PostsRepository::class)->find($view),
         ]);
     }
 }

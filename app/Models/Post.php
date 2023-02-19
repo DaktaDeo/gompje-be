@@ -21,6 +21,8 @@ class Post extends MpModel
         'view' => null,
         'last_modified' => null,
         'frontMatter' => [],
+        'path' => '',
+        'category' => '',
     ];
 
     protected $casts = [
@@ -47,6 +49,8 @@ class Post extends MpModel
         'key',
         'view',
         'last_modified',
+        'path',
+        'category',
     ];
 
     protected $fillable = [
@@ -62,19 +66,20 @@ class Post extends MpModel
         'key',
         'view',
         'last_modified',
+        'path',
+        'category',
     ];
 
-    public function __construct(array $attributes = [])
+    public function processFrontMatter(): void
     {
-        $this->frontMatter = data_get($attributes, 'frontMatter', []);
         $this->fill($this->frontMatter);
-
-        $this->content = data_get($attributes, 'content', '');
-        $this->view = data_get($attributes, 'view', '/index');
-        $this->key = data_get($attributes, 'key', '');
-        $this->last_modified = data_get($attributes, 'last_modified', '');
-
         $this->handleReleaseDate();
+        $this->handleCategory();
+    }
+
+    private function handleCategory(): void
+    {
+        $this->category = Str::beforeLast($this->view, '/');
     }
 
     private function handleReleaseDate(): void
