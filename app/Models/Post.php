@@ -133,6 +133,6 @@ class Post extends MpModel
     // generate permalink for this post
     public function getPermalinkAttribute(): string
     {
-        return route('any', $this->slug);
+        return route('any', $this->view);
     }
 }

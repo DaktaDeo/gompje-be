@@ -5,7 +5,7 @@
            class="permalink" aria-hidden="true" title="Permalink">
             #
         </a>
-            Who the hell am I?
+          {{$post->title}}
     </h1>
 
 

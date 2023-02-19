@@ -40,7 +40,7 @@ class PostsRepository
     public function findByTag($tag): Collection
     {
         return $this->all()->filter(function ($post) use ($tag) {
-            return in_array($tag, $post->tags);
+            return collect($post->tags)->contains($tag);
         });
     }
 
@@ -48,7 +48,7 @@ class PostsRepository
     public function findByCategory($category): Collection
     {
         return $this->all()->filter(function ($post) use ($category) {
-            return in_array($category, $post->categories);
+            return $post->category === $category;
         });
     }
 }
