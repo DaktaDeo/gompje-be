@@ -3,8 +3,9 @@ title: 'Who the hell am I? -- part 2'
 author: Veerle Deschepper
 date:  2020-11-24T17:41:24+01:00
 ---
+# Who the hell am I? -- part 2
 
-<nuxt-link to="/">Part 1</nuxt-link>
+[Part 1]('/')
 
 ### Community 
 Opensource is the way the world should work: all people working together to make it a better place.
@@ -60,4 +61,3 @@ I think all the time, build when the 🎉 hits me -- and that cannot be at a set
 
 🤙
 
-<nuxt-link to="/42" class='hidden'>42</nuxt-link>

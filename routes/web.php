@@ -24,4 +24,4 @@ require __DIR__.'/auth.php';
 
 Route::get('/{any?}', [Controller::class, 'show'])->where([
     'any' => '.+',
-]);
+])->name('any');

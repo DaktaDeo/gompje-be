@@ -62,6 +62,7 @@ return [
         AttributesExtension::class,
         GithubFlavoredMarkdownExtension::class,
         FrontMatterExtension::class,
+        HeadingPermalinkExtension::class,
     ],
 
     /*
