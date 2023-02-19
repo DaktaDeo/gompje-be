@@ -3,7 +3,6 @@ title: 'Who the hell am I?'
 author: Veerle Deschepper
 date:  2020-11-24T17:41:24+01:00
 ---
-# Who the hell am I?
 
 🤔 Hmm...Good question! I'm a thinker, thinkerer and builder of things. What?
 

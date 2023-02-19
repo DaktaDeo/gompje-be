@@ -3,7 +3,6 @@ title: 'Who the hell am I? -- part 2'
 author: Veerle Deschepper
 date:  2020-11-24T17:41:24+01:00
 ---
-# Who the hell am I? -- part 2
 
 [Part 1]('/')
 

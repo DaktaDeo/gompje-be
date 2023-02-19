@@ -7,6 +7,91 @@ use Illuminate\Support\Str;
 
 class Post extends MpModel
 {
+    protected $attributes = [
+        'title' => '',
+        'excerpt' => '',
+        'date' => 0,
+        'is_draft' => true,
+        'tags' => [],
+        'header_image' => '',
+        'list_image' => '',
+        'is_compact' => false,
+        'content' => null,
+        'key' => null,
+        'view' => null,
+        'last_modified' => null,
+        'frontMatter' => [],
+    ];
+
+    protected $casts = [
+        'date' => 'datetime',
+        'is_draft' => 'boolean',
+        'tags' => 'array',
+        'is_compact' => 'boolean',
+        'last_modified' => 'datetime',
+        'frontMatter' => 'array',
+    ];
+
+    protected $visible = [
+        'title',
+        'excerpt',
+        'date',
+        'is_draft',
+        'tags',
+        'header_image',
+        'list_image',
+        'is_compact',
+        'slug',
+        'readable_release',
+        'content',
+        'key',
+        'view',
+        'last_modified',
+    ];
+
+    protected $fillable = [
+        'title',
+        'excerpt',
+        'date',
+        'is_draft',
+        'tags',
+        'header_image',
+        'list_image',
+        'is_compact',
+        'content',
+        'key',
+        'view',
+        'last_modified',
+    ];
+
+    public function __construct(array $attributes = [])
+    {
+        $this->frontMatter = data_get($attributes, 'frontMatter', []);
+        $this->fill($this->frontMatter);
+
+        $this->content = data_get($attributes, 'content', '');
+        $this->view = data_get($attributes, 'view', '/index');
+        $this->key = data_get($attributes, 'key', '');
+        $this->last_modified = data_get($attributes, 'last_modified', '');
+
+        $this->handleReleaseDate();
+    }
+
+    private function handleReleaseDate(): void
+    {
+        //if release date is set, create carbon
+        if (data_get($this->frontMatter, 'date') !== null) {
+            $this->release_date = Carbon::createFromTimestamp($this->date);
+        } else {
+            $this->release_date = null;
+        }
+
+        // if release date is not null, set isDraft to false
+        if (! is_null($this->release_date)) {
+            $this->is_draft = false;
+        }
+    }
+
     public function getSlugAttribute(): string
     {
         // remove index from the end of the slug
@@ -17,79 +102,32 @@ class Post extends MpModel
         return Str::slug($this->view);
     }
 
-    public function getDateAttribute(): string
+    public function getReadableReleaseAttribute(): string
     {
-        $date = data_get($this->frontMatter, 'date', $this->last_modified);
-
-        // create date from int
-        if (is_int($date)) {
-            return Carbon::createFromTimestamp($date)->format('Y-m-d H:i:s');
+        if ($this->is_draft) {
+            return 'Draft';
         }
 
-        return '';
+        return ($this->release_date->isFuture() ? 'Planned for ' : '').$this->release_date->diffForHumans();
     }
 
-    public function getTitleAttribute(): string
+    public function getReadingTimeAttribute(): int
     {
-        return data_get($this->frontMatter, 'title', '');
+        $word = str_word_count(strip_tags($this->content));
+        $minutes = (int) floor($word / 200);
+
+        return $minutes > 0 ? $minutes : 1;
     }
 
-    // get the excerpt from the frontmatter
-    public function getExcerptAttribute(): string
+    public function isReleased(): bool
     {
-        return data_get($this->frontMatter, 'excerpt', '');
-    }
-
-    public function getAuthorAttribute(): string
-    {
-        return data_get($this->frontMatter, 'author', '');
-    }
-
-    //get the tags from the frontmatter
-    public function getTagsAttribute(): array
-    {
-        return data_get($this->frontMatter, 'tags', []);
-    }
-
-//get the blurb image fro
-    public function getBlurbImageAttribute(): string
-    {
-        return data_get($this->frontMatter, 'blurb.image', '');
-    }
-
-    // get the blurb text from the frontmatter
-    public function getBlurbTextAttribute(): string
-    {
-        return data_get($this->frontMatter, 'blurb.text', '');
-    }
-
-    // get the blurb object from the frontmatter
-    public function getBlurbAttribute(): array
-    {
-        return data_get($this->frontMatter, 'blurb', []);
-    }
-
-    //get the tagline from the frontmatter
-    public function getTaglineAttribute(): string
-    {
-        return data_get($this->frontMatter, 'tagline', '');
-    }
-
-    // get is compact post from the frontmatter
-    public function getIsCompactAttribute(): bool
-    {
-        return data_get($this->frontMatter, 'isCompact', false);
-    }
-
-    // get a given attribute from this model and check if it is empty
-    public function hasAttribute(string $attribute): bool
-    {
-        return ! empty($this->$attribute);
+        // return true when release date is in the past or null and this post is not a draft
+        return $this->release_date->isPast() || (is_null($this->release_date) && ! $this->is_draft);
     }
 
     // generate permalink for this post
     public function getPermalinkAttribute(): string
     {
-        return route('any', ['slug' => $this->slug]);
+        return route('any', $this->slug);
     }
 }

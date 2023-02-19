@@ -14,7 +14,7 @@ abstract class MpModel extends Model
 
     public array $frontMatter = [];
 
-    public string $content;
+    public string $content = '';
 
     protected $casts = [
         'created_at' => 'datetime',

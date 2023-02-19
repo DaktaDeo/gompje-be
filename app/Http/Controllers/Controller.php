@@ -63,7 +63,7 @@ class Controller extends BaseController
         $key = $view.$lastModified;
 
         //check if cache exists with this $key
-        if (Cache::has($key)) {
+        if (Cache::has($key) && (app()->environment() !== 'local')) {
             return Cache::get($key);
         }
 
@@ -72,20 +72,24 @@ class Controller extends BaseController
         foreach ($keys as $key) {
             Cache::forget($key);
         }
-        $post = new Post([
-            'key' => $key,
-            'view' => $view,
-            'last_modified' => $lastModified,
-        ]);
 
         $result = Markdown::convert($this->disk->get($wantedFile));
 
         if ($result instanceof RenderedContentWithFrontMatter) {
-            $post->frontMatter = $result->getFrontMatter();
+            $frontMatter = $result->getFrontMatter();
         }
-        $post->content = $result->getContent();
 
-        Cache::forever($key, $post);
+        $post = new Post([
+            'key' => $key,
+            'view' => $view,
+            'last_modified' => $lastModified,
+            'frontMatter' => $frontMatter ?? [],
+            'content' => $result->getContent(),
+        ]);
+
+        if (app()->environment() !== 'local') {
+            Cache::forever($key, $post);
+        }
 
         return $post;
     }
