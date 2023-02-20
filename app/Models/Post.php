@@ -74,11 +74,7 @@ class Post extends MpModel
     {
         $this->fill($this->frontMatter);
         $this->handleReleaseDate();
-        $this->handleCategory();
-    }
 
-    private function handleCategory(): void
-    {
         $this->category = Str::beforeLast($this->view, '/');
     }
 
@@ -95,6 +91,21 @@ class Post extends MpModel
         if (! is_null($this->release_date)) {
             $this->is_draft = false;
         }
+    }
+
+    // generate an excerpt form the content if the excerpt is empty
+    // and remove all # from the excerpt
+    // and replace &gt; with >
+    // and replace &lt; with <
+    public function getExcerptAttribute(): string
+    {
+        if (empty($this->attributes['excerpt'])) {
+            $excerpt = Str::limit(strip_tags($this->content), 160);
+
+            return str_replace(['#', '&gt;', '&lt;'], ['', '>', '<'], $excerpt);
+        }
+
+        return $this->attributes['excerpt'];
     }
 
     public function getSlugAttribute(): string

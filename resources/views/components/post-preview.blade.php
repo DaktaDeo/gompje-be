@@ -1,10 +1,11 @@
 <div class="mt-12 spaced-y-10">
     <div>
-        @if(!$post->is_draft)
-            <div class="text-gray-400 text-xs uppercase">
-                {{$post->release_date->format('l jS \\of F Y  H:i:s ')}}
+        <div class="flex mt-1 text-gray-500 text-xs mb-2 gap-2">
+            <x-relative-time :date-time="$post->release_date" prefix="Published →" />
+            <div>
+                {{$post->readingTime}} min read
             </div>
-        @endif
+        </div>
 
         @if($post->is_compact)
             <span class="text-lg text-gray-900 dark:text-gray-200">
@@ -27,7 +28,7 @@
     </div>
 
     <div class="text-base leading-normal mt-1">
-
+        {{ $post->excerpt }}
     </div>
 
     @if(!$post->isCompact)
