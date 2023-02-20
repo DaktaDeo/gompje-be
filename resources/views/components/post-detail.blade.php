@@ -5,16 +5,14 @@
            class="permalink" aria-hidden="true" title="Permalink">
             #
         </a>
-          {{$post->title}}
+        {{$post->title}}
     </h1>
 
 
-    <div class="flex justify-between mt-8 text-gray-500 text-xs uppercase mb-6">
+    <div class="flex justify-between mt-8 text-gray-500 text-xs mb-6">
+        <x-relative-time :date-time="$post->release_date" prefix="Published →" />
         <div>
-            Published → {{$post->readable_release}}
-        </div>
-        <div>
-            Readingtime → approx {{$post->readingTime}} mins
+            {{$post->readingTime}} min read
         </div>
     </div>
 

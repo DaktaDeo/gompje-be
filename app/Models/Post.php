@@ -107,15 +107,6 @@ class Post extends MpModel
         return Str::slug($this->view);
     }
 
-    public function getReadableReleaseAttribute(): string
-    {
-        if ($this->is_draft) {
-            return 'Draft';
-        }
-
-        return ($this->release_date->isFuture() ? 'Planned for ' : '').$this->release_date->diffForHumans();
-    }
-
     public function getReadingTimeAttribute(): int
     {
         $word = str_word_count(strip_tags($this->content));
