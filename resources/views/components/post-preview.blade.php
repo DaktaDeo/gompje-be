@@ -1,7 +1,7 @@
-<div class="mt-12 spaced-y-10">
+<div class="mt-2 spaced-y-10 mb-10">
     <div>
         <div class="flex mt-1 text-gray-500 text-xs mb-2 gap-2">
-            <x-relative-time :date-time="$post->release_date" prefix="Published →" />
+            <x-relative-time :date-time="$post->release_date" prefix="Published →"/>
             <div>
                 {{$post->readingTime}} min read
             </div>
@@ -27,9 +27,11 @@
         @endif
     </div>
 
-    <div class="text-base leading-normal mt-1">
-        {{ $post->excerpt }}
-    </div>
+    @if($showExcerpt)
+        <div class="text-base leading-normal mt-1">
+            {{ $post->excerpt }}
+        </div>
+    @endif
 
     @if(!$post->isCompact)
         <div class="text-base leading-normal mt-2">

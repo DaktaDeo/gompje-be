@@ -18,13 +18,16 @@ class PostIndex extends Component
 
     protected string $readMoreText = 'Read more';
 
-    public function __construct($posts, $pageTitle, $pageLink, $pageSubtitle, $readMoreText = 'Read more')
+    protected bool $showExcerpt = true;
+
+    public function __construct($posts, $pageTitle, $pageLink, $pageSubtitle, $readMoreText, $showExcerpt = true)
     {
         $this->posts = $posts ?? collect();
         $this->pageTitle = $pageTitle;
         $this->pageLink = $pageLink;
         $this->pageSubtitle = $pageSubtitle;
         $this->readMoreText = $readMoreText;
+        $this->showExcerpt = $showExcerpt;
     }
 
     public function render(): View
@@ -35,6 +38,7 @@ class PostIndex extends Component
             'pageLink' => $this->pageLink,
             'pageSubtitle' => $this->pageSubtitle,
             'readMoreText' => $this->readMoreText,
+            'showExcerpt' => $this->showExcerpt,
         ]);
     }
 }

@@ -10,12 +10,15 @@ class PostPreview extends Component
 {
     public Post $post;
 
-    public string $readMoreText = 'Read more &rarr;';
+    public string $readMoreText;
 
-    public function __construct(Post $post, string $readMoreText = '')
+    public bool $showExcerpt;
+
+    public function __construct(Post $post, $readMoreText, $showExcerpt)
     {
         $this->post = $post;
-        $this->readMoreText = $readMoreText;
+        $this->readMoreText = $readMoreText ?? 'Read more &rarr;';
+        $this->showExcerpt = $showExcerpt ?? true;
     }
 
     public function render(): View
@@ -23,6 +26,7 @@ class PostPreview extends Component
         return view('components.post-preview', [
             'post' => $this->post,
             'readMoreText' => $this->readMoreText,
+            'showExcerpt' => $this->showExcerpt,
         ]);
     }
 }

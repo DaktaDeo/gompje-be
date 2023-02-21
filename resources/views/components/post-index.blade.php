@@ -8,9 +8,11 @@
             >{{ $pageSubtitle }}</span>
         </h1>
 
+        {!! $slot !!}
+
         <div class="mt-4">
             @foreach($posts as $post)
-                <x-post-preview :post="$post" :read-more-text="$readMoreText"/>
+                <x-post-preview :post="$post" :read-more-text="$readMoreText" :show-excerpt="$showExcerpt"/>
             @endforeach
         </div>
     </div>
