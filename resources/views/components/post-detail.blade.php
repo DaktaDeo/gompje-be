@@ -1,4 +1,4 @@
-<article class="prose dark:prose-invert mx-auto max-w-prose">
+<article class="mt-2 prose prose-indigo prose-lg mx-auto dark:prose-light">
 
     <h1>
         <a href="{{$post->permaLink}}"
@@ -9,7 +9,7 @@
     </h1>
 
 
-    <div class="flex justify-between mt-8 text-gray-500 text-xs mb-6">
+    <div class="flex mt-8 text-gray-500 text-xs mb-6 gap-2">
         <x-relative-time :date-time="$post->release_date" prefix="Published →" />
         <div>
             {{$post->readingTime}} min read
