@@ -1,11 +1,17 @@
-import { defineConfig } from 'vite';
+import {defineConfig} from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 export default defineConfig({
     plugins: [
-        laravel([
-            'resources/css/app.scss',
-            'resources/js/app.js',
-        ]),
+        laravel(
+            {
+                input: [
+                    'resources/css/app.scss',
+                    'resources/js/app.js',
+                ],
+                valetTls: 'gompje-be.test',
+                refresh: true,
+            }
+        ),
     ],
 });
