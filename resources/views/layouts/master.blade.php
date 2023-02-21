@@ -15,29 +15,19 @@
 <div class="min-h-screen bg-gray-100">
     @include('layouts.navigation')
 
-    <main class="relative py-10">
+    <main class="relative py-8">
         {{ $slot }}
     </main>
-    <footer>
-        <div class="max-w-7xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
-            <div class="mt-8 flex justify-center space-x-6"><a
-                    href="https://twitter.com/intent/follow?screen_name=iAmGompje" title="Twitter" target="_blank"
+    <footer class="mt-2 prose prose-indigo prose-lg mx-auto dark:prose-light border-t-2 pt-4">
+            <div class=" flex justify-center gap-4"><a
+                    href="https://phpc.social/@Gompje" title="Twitter" target="_blank"
                     class="text-gray-400 hover:text-gray-500">
                     <div class="h-5 w-5 inline-svg fill-current">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <!--! Font Awesome Pro 6.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                                 <path
-                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </a><a href="https://www.facebook.com/Gompje" title="Facebook" target="_blank"
-                       class="text-gray-400 hover:text-gray-500">
-                    <div class="h-5 w-5 inline-svg fill-current">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path>
+                                    d="M433 179.11c0-97.2-63.71-125.7-63.71-125.7-62.52-28.7-228.56-28.4-290.48 0 0 0-63.72 28.5-63.72 125.7 0 115.7-6.6 259.4 105.63 289.1 40.51 10.7 75.32 13 103.33 11.4 50.81-2.8 79.32-18.1 79.32-18.1l-1.7-36.9s-36.31 11.4-77.12 10.1c-40.41-1.4-83-4.4-89.63-54a102.54 102.54 0 0 1-.9-13.9c85.63 20.9 158.65 9.1 178.75 6.7 56.12-6.7 105-41.3 111.23-72.9 9.8-49.8 9-121.5 9-121.5zm-75.12 125.2h-46.63v-114.2c0-49.7-64-51.6-64 6.9v62.5h-46.33V197c0-58.5-64-56.6-64-6.9v114.2H90.19c0-122.1-5.2-147.9 18.41-175 25.9-28.9 79.82-30.8 103.83 6.1l11.6 19.5 11.6-19.5c24.11-37.1 78.12-34.8 103.83-6.1 23.71 27.3 18.4 53 18.4 175z"/>
                             </svg>
                         </div>
                     </div>
@@ -51,26 +41,6 @@
                             </svg>
                         </div>
                     </div>
-                </a><a href="https://www.instagram.com/gompje/" title="Instagram" target="_blank"
-                       class="text-gray-400 hover:text-gray-500">
-                    <div class="h-5 w-5 inline-svg fill-current">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path>
-                            </svg>
-                        </div>
-                    </div>
-                </a><a href="https://gitlab.com/Gompje" title="Gitlab" target="_blank"
-                       class="text-gray-400 hover:text-gray-500">
-                    <div class="h-5 w-5 inline-svg fill-current">
-                        <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M105.2 24.9c-3.1-8.9-15.7-8.9-18.9 0L29.8 199.7h132c-.1 0-56.6-174.8-56.6-174.8zM.9 287.7c-2.6 8 .3 16.9 7.1 22l247.9 184-226.2-294zm160.8-88l94.3 294 94.3-294zm349.4 88l-28.8-88-226.3 294 247.9-184c6.9-5.1 9.7-14 7.2-22zM425.7 24.9c-3.1-8.9-15.7-8.9-18.9 0l-56.6 174.8h132z"></path>
-                            </svg>
-                        </div>
-                    </div>
                 </a><a href="https://github.com/Gompje" title="Github" target="_blank"
                        class="text-gray-400 hover:text-gray-500">
                     <div class="h-5 w-5 inline-svg fill-current">
@@ -81,22 +51,26 @@
                             </svg>
                         </div>
                     </div>
-                </a></div>
-            <p class="mt-8 text-center text-base text-gray-400">
-                The DaktaDeo &amp; Multipass logos are copyright ©
-                <a href="https://daktadeo.be?ref=gompje.be">DaktaDeo.</a> 2011–2023. <br>
-            <p xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#">
+                </a>
+            </div>
+            <div class="flex flex-col text-gray-400 text-sm mt-4">
+                <div class="flex gap-2">
+                    <span>The DaktaDeo &amp; Multipass logos are copyright ©</span>
+                    <a href="https://daktadeo.be?ref=gompje.be" class="text-gray-400 hover:text-gray-500">DaktaDeo.</a> 2011–2023.
+                    <a href="/terms" class="text-gray-400 hover:text-gray-500 border-l-2 pl-2">
+                        Terms &amp; Conditions
+                    </a>
+                </div>
+            <div xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="text-gray-400 hover:text-gray-500 text-sm pb-12 flex gap-2 mt-2">
                 This work by
-                <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.gompje.be"
-                   class="hover:text-gray-500 underline">Veerle Deschepper</a>
+                <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.gompje.be" class="text-gray-400 hover:text-gray-500">Veerle Deschepper</a>
                 is licensed under
-                <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0"
-                   class="inline-flex justify-center space-x-2 hover:text-gray-500"><span
-                        class="underline">CC BY-SA 4.0</span>
+                <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0" class="text-gray-400 hover:text-gray-500 flex gap-2">
+                    <span>CC BY-SA 4.0</span>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="64px" height="64px" viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64"
                          xml:space="preserve" class="h-5 w-5 inline-svg fill-current ml-2"><g>
-                            <circle fill="#FFFFFF" cx="37.785" cy="28.501" r="28.836"></circle>
+                            <circle fill="none" cx="37.785" cy="28.501" r="28.836"></circle>
                             <path d="M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314
 		c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143
 		c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429
@@ -119,7 +93,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="64px" height="64px" viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64"
                          xml:space="preserve" class="h-5 w-5 inline-svg fill-current"><g>
-                            <circle fill="#FFFFFF" cx="37.637" cy="28.806" r="28.276"></circle>
+                            <circle fill="none" cx="37.637" cy="28.806" r="28.276"></circle>
                             <g>
                                 <path d="M37.443-3.5c8.988,0,16.57,3.085,22.742,9.257C66.393,11.967,69.5,19.548,69.5,28.5c0,8.991-3.049,16.476-9.145,22.456
 			C53.879,57.319,46.242,60.5,37.443,60.5c-8.649,0-16.153-3.144-22.514-9.43C8.644,44.784,5.5,37.262,5.5,28.5
@@ -135,7 +109,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="64px" height="64px" viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64"
                          xml:space="preserve" class="h-5 w-5 inline-svg fill-current"><g>
-                            <circle fill="#FFFFFF" cx="36.944" cy="28.631" r="29.105"></circle>
+                            <circle fill="none" cx="36.944" cy="28.631" r="29.105"></circle>
                             <g>
                                 <path d="M37.443-3.5c8.951,0,16.531,3.105,22.742,9.315C66.393,11.987,69.5,19.548,69.5,28.5c0,8.954-3.049,16.457-9.145,22.514
 			C53.918,57.338,46.279,60.5,37.443,60.5c-8.649,0-16.153-3.143-22.514-9.429C8.644,44.786,5.5,37.264,5.5,28.501
@@ -150,10 +124,9 @@
 			c-4.268,0-6.667,1.885-7.2,5.656h2.343l-6.342,6.343l-6.343-6.343L23.271,23.985L23.271,23.985z"></path>
                             </g>
                         </g></svg>
-                </a></p>
-            <a href="/terms" class="ml-2 underline">
-                Terms &amp; Conditions
-            </a></p></div>
+                </a>
+            </div>
+        </div>
     </footer>
 </div>
 
