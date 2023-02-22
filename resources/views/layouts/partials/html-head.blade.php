@@ -17,4 +17,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+<meta name="theme-color" content="#ffffff">
+<meta name="color-scheme" content="light">
+
 @include('layouts.partials.seo-analytics')

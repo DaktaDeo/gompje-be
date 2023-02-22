@@ -10,18 +10,18 @@
     @stack('endHead')
     @livewireStyles
 </head>
-<body class="font-sans antialiased">
+<body class="font-sans text-gray-600 antialiased bg-gray-100 dark:bg-gray-800 dark:text-gray-300">
 <script>/**/</script><!-- Empty script to prevent FOUC in Firefox -->
-<div class="min-h-screen bg-gray-100">
-    @include('layouts.navigation')
+<div class="min-h-screen font-sans text-gray-600 antialiased bg-gray-100 dark:bg-slate-900 dark:text-gray-300">
+    @include('layouts.header')
 
     <main class="relative py-8">
         {{ $slot }}
     </main>
-    <footer class="mt-2 prose prose-indigo prose-lg mx-auto dark:prose-light border-t-2 pt-4">
+    <footer class="mt-2 prose prose-indigo prose-lg mx-auto dark:prose-light border-t-2 pt-4 dark:border-t-0">
             <div class=" flex justify-center gap-4"><a
-                    href="https://phpc.social/@Gompje" title="Twitter" target="_blank"
-                    class="text-gray-400 hover:text-gray-500">
+                    href="https://phpc.social/@Gompje" title="Mastodon" target="_blank"
+                    class="text-gray-400 hover:text-gray-500 dark:text-gray-600">
                     <div class="h-5 w-5 inline-svg fill-current">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -32,7 +32,7 @@
                         </div>
                     </div>
                 </a><a href="https://www.linkedin.com/in/veerledeschepper/" title="LinkedIn" target="_blank"
-                       class="text-gray-400 hover:text-gray-500">
+                       class="text-gray-400 hover:text-gray-500  dark:text-gray-600">
                     <div class="h-5 w-5 inline-svg fill-current">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
                 </a><a href="https://github.com/Gompje" title="Github" target="_blank"
-                       class="text-gray-400 hover:text-gray-500">
+                       class="text-gray-400 hover:text-gray-500  dark:text-gray-600">
                     <div class="h-5 w-5 inline-svg fill-current">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
@@ -53,19 +53,19 @@
                     </div>
                 </a>
             </div>
-            <div class="flex flex-col text-gray-400 text-sm mt-4">
+            <div class="flex flex-col text-gray-400 text-sm mt-4  dark:text-gray-600">
                 <div class="flex gap-2">
                     <span>The DaktaDeo &amp; Multipass logos are copyright ©</span>
-                    <a href="https://daktadeo.be?ref=gompje.be" class="text-gray-400 hover:text-gray-500">DaktaDeo.</a> 2011–2023.
-                    <a href="/terms" class="text-gray-400 hover:text-gray-500 border-l-2 pl-2">
+                    <a href="https://daktadeo.be?ref=gompje.be" class="text-gray-400 hover:text-gray-500  dark:text-gray-600">DaktaDeo.</a> 2011–2023.
+                    <a href="/terms" class="text-gray-400 hover:text-gray-500 border-l-2 pl-2  dark:text-gray-600 dark:border-l-0">
                         Terms &amp; Conditions
                     </a>
                 </div>
-            <div xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="text-gray-400 hover:text-gray-500 text-sm pb-12 flex gap-2 mt-2">
+            <div xmlns:dct="http://purl.org/dc/terms/" xmlns:cc="http://creativecommons.org/ns#" class="text-gray-400 hover:text-gray-500 text-sm pb-12 flex gap-2 mt-2  dark:text-gray-600">
                 This work by
-                <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.gompje.be" class="text-gray-400 hover:text-gray-500">Veerle Deschepper</a>
+                <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.gompje.be" class="text-gray-400 hover:text-gray-500  dark:text-gray-600">Veerle Deschepper</a>
                 is licensed under
-                <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0" class="text-gray-400 hover:text-gray-500 flex gap-2">
+                <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0" class="text-gray-400 hover:text-gray-500 flex gap-2  dark:text-gray-600">
                     <span>CC BY-SA 4.0</span>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                          width="64px" height="64px" viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64"
