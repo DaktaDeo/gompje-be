@@ -7,6 +7,16 @@
                 class=" mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight sm:text-4xl ">{{ $pageSubtitle }}</span>
         </h1>
 
+        @if(!empty($messages))
+            {!! $messages !!}
+        @endif
+
+        @if(!empty($intro))
+            <div class="text-sm text-slate-500 my-7 py-0 px-3 dark:border-indigo-800 dark:text-slate-500 border-l-2 italic border-indigo-600">
+                {!! $intro !!}
+            </div>
+        @endif
+
         {!! $slot !!}
 
         <div class="mt-4">

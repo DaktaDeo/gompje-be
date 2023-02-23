@@ -9,11 +9,12 @@
                         ->findByCategory('nantucket')
                         ->sortByDesc('date')"
 >
-    <x-slot name="slot">
+    <x-slot name="messages">
         <div class="text-xl text-orange-700 my-4">
             <strong>Everything I write is NEVER intended to offend anyone.</strong>
         </div>
-        <div class="text-sm text-gray-500 mt-4 border-2 p-4 mb-8">
+    </x-slot>
+    <x-slot name="intro">
             <p>
                 Ah! Nantucket. Home of the man who once had a bucket.
             </p>
@@ -34,7 +35,6 @@
             <p class="mt-4">
                 And no, Copilot didn’t write any of them. I did. I’m not sure if I should be.
             </p>
-        </div>
     </x-slot>
 </x-post-index>
 </x-master-layout>
