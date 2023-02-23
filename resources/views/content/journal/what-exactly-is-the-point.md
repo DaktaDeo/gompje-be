@@ -10,8 +10,8 @@ blurb:
 url: '/what-exactly-is-the-point-🤨/'
 ---
 Welp. I just got an e-mail with as message &#8220;you have a confidential message from x from Az Jan-Palfijn&#8221;. With a link. That link takes me to this page:
- 
-<content-image src="/img/screenshot-to-much-security.png" alt="screenshot"></content-image>
+
+![screenshotd of the message](/img/screenshot-to-much-security.png) 
 
 And says &#8220;well before you can read this super secret message, you have to unlock it.. by sending an e-mail to the .. exact same e-mail address as before&#8221;.
 

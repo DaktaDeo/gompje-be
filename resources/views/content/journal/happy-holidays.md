@@ -8,6 +8,5 @@ url: '/happy-holidays/'
 blurb:
     image: '/img/me-and-my-mother.jpg'
 ---
-
-<content-image src="/img/me-and-my-mother.jpg" alt="selfie of my mother and I"></content-image>
+![selfie of my mother and I](/img/me-and-my-mother.jpg)
 

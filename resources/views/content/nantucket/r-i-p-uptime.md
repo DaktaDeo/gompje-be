@@ -26,6 +26,6 @@ categories:
 > 
 > R.I.P &#8211; we will remember 💐
 
-<content-image src='/img/screenshot-uptime.png' alt="terminal of my uptime"></content-image>
+![terminal of my uptimee'](/img/screenshot-uptime.png)
 
 .. on to the next record!
