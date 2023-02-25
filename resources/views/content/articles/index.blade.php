@@ -1,4 +1,4 @@
-<x-master-layout title="Articles">
+<x-master-layout page-title="Articles">
 
 <x-post-index page-title="Articles"
               page-link="/articles"

@@ -1,4 +1,4 @@
-<x-master-layout title="journal">
+<x-master-layout page-title="journal">
 
     <x-post-index page-title="journal"
                   page-link="/journal"

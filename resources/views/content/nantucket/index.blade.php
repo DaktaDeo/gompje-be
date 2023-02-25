@@ -1,4 +1,4 @@
-<x-master-layout title="nantucket">
+<x-master-layout page-title="nantucket">
 
 <x-post-index page-title="There once was a man in Nantucket. 🪣"
               page-link="/nantucket"

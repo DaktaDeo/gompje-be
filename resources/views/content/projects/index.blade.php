@@ -1,4 +1,4 @@
-<x-master-layout title="projects">
+<x-master-layout page-title="projects">
     <x-post-index page-title="projects"
                   page-link="/projects"
                   page-subtitle="Some projects I've worked on"

@@ -6,7 +6,7 @@
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     @vite(['resources/css/app.scss', 'resources/js/app.js'])
 
-    <title>{{$post->title}}</title>
+    <title>Gompje.be - {{$pageTitle}}</title>
     @stack('endHead')
     @livewireStyles
 </head>

@@ -1,4 +1,4 @@
-<x-master-layout title="reviews">
+<x-master-layout page-title="reviews">
 
     <x-post-index page-title="reviews"
                   page-link="/reviews"
