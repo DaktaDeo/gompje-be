@@ -1,13 +1,13 @@
-<!-- Global site tag (gtag.js) - Google Analytics -->
 @if (App::environment('production'))
 
-{{--    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-25132847-7"></script>--}}
-{{--    <script>--}}
-{{--      window.dataLayer = window.dataLayer || [];--}}
-{{--      function gtag(){dataLayer.push(arguments);}--}}
-{{--      gtag('js', new Date());--}}
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z18JPC9GNF"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
 
-{{--      gtag('config', 'UA-25132847-7');--}}
-{{--    </script>--}}
+        gtag('config', 'G-Z18JPC9GNF');
+    </script>
 
 @endif
