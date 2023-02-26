@@ -1,4 +1,4 @@
-<article class="mt-2 prose prose-indigo prose-lg mx-auto dark:prose-light">
+<article class="prose prose-indigo p-2 mx-auto dark:prose-light md:p-0">
 
     <h1>
         <a href="{{$post->permaLink}}"
