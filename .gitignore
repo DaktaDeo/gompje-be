@@ -67,7 +67,6 @@ github.secrets
 .php_cs
 
 build
-composer.lock
 coverage
 docs
 phpunit.xml
