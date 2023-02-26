@@ -17,7 +17,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
-<meta name="theme-color" content="#ffffff">
-<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#fff">
 
 @include('layouts.partials.seo-analytics')
+
+{{--<script>--}}
+{{--    try {--}}
+{{--        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {--}}
+{{--            document.documentElement.classList.add('dark')--}}
+{{--            document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0B1120')--}}
+{{--        } else {--}}
+{{--            document.documentElement.classList.remove('dark')--}}
+{{--        }--}}
+{{--    } catch (_) {}--}}
+{{--</script>--}}
