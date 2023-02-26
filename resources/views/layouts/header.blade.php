@@ -26,13 +26,7 @@ $menuItems = [
 <header class="relative">
     <div class=" flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10 max-w-screen-xl mx-auto">
         <div class="lg:w-0 lg:flex-1">
-            <a href="/" aria-label="Home" class="h-8 w-auto sm:h-10 fill-light-silver fill-dot">
-                <img
-                    class="h-10 w-10 md:h-12 md:w-12 lg:h-20 lg:w-20 rounded-full"
-                    src="https://secure.gravatar.com/avatar/09251c08e3db9c6698f9fe621d4c1d6e?s=160&d=identicon"
-                    alt=""
-                />
-            </a>
+           <x-site-logo />
         </div>
         <div class="-mr-2 -my-2 md:hidden">
             <button

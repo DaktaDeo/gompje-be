@@ -18,7 +18,9 @@
 <body class="font-sans text-gray-600 antialiased bg-gray-100 dark:bg-gray-800 dark:text-gray-300">
 <script>/**/</script><!-- Empty script to prevent FOUC in Firefox -->
 <div class="min-h-screen font-sans text-gray-600 antialiased bg-gray-100 dark:bg-slate-900 dark:text-gray-300">
-    @include('layouts.header')
+    <header class="relative">
+        <x-nav-bar/>
+    </header>
 
     <main class="relative py-8">
         {{ $slot }}
