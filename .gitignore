@@ -30,7 +30,6 @@ public/css/
 public/fonts/
 
 /storage/docs
-/storage
 /tools
 
 /.env.review
